@@ -70,6 +70,7 @@ public class ProductDaoImpl implements ProductDao {
         Map<String, Object> map = new HashMap<>();
         map.put("productId", productId);
 
+        //可以在.query上按"alt + enter"選擇Introduce local variable自動產生List<Product> productList去承接
         List<Product> productList = namedParameterJdbcTemplate.query(sql, map, new ProductRowMapper());
 
         if (productList.size() > 0) {

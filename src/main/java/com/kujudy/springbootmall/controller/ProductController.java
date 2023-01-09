@@ -73,6 +73,9 @@ public class ProductController {
         }
     }
 
+    //創建createProduct()裡面的參數不要直接用model的class
+    //建議額外創建dto(data transfer object), 因為可能會需要為傳過來的json做一些限制(@NotNull)，比較好處理，不影響原本model
+    //@Valid註解記得要加ProductRequest的驗證才會生效，容易忘記！
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct(@RequestBody @Valid ProductRequest productRequest) {
         Integer productId = productService.createProduct(productRequest);

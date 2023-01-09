@@ -8,6 +8,14 @@ public class Product {
 
     private Integer productId;
     private String productName;
+
+    //透過enum可以限制資料應該有的固定常數值有哪些，提前過濾掉髒資料
+    //可以在String上按右鍵 Refactor -> Type Migration 轉換 java.lang.String -> ProductCategory
+    //ProductRowMapper會報錯，先Ignore忽略再去修改 String -> enum
+    //product.setCategory(resultSet.getString("category"));   "String"
+    //product.setCategory(ProductCategory.valueOf(resultSet.getString("category")));    "enum"
+    //原本用String如下
+    //private String category;
     private ProductCategory category;
     private String imageUrl;
     private Integer price;

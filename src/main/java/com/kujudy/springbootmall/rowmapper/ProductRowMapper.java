@@ -21,6 +21,7 @@ public class ProductRowMapper implements RowMapper<Product> {
         ProductCategory category = ProductCategory.valueOf(categoryStr);
         product.setCategory(category);
 
+        //上面可以簡化成以下寫法
 //        product.setCategory(ProductCategory.valueOf(resultSet.getString("category")));
 
 
